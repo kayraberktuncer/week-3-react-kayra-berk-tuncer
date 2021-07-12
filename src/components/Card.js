@@ -16,10 +16,10 @@ export default function Card({
       </div>
       <div className="card-content">
         <h3>{name}</h3>
-        <span>{gender}</span>
-        <span>{species}</span>
-        <span>{status}</span>
-        <span>{location}</span>
+        <strong>Gender : {gender}</strong>
+        <strong>Species : {species}</strong>
+        <strong>Status : {status}</strong>
+        <strong>Location : {location}</strong>
       </div>
     </div>
   )
