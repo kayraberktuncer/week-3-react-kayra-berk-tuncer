@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import BackButton from '../components/BackButton'
 
 export default function DetailPage() {
   const { id } = useParams()
@@ -31,6 +32,7 @@ export default function DetailPage() {
 
   return (
     <div>
+      <BackButton />
       <img src={character.image} alt={character.name} />
       <h1>{character.name}</h1>
       <p>{character.gender}</p>
