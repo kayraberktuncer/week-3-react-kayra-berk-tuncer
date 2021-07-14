@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function Card({
-  id,
   name,
   gender,
   species,
@@ -16,11 +16,32 @@ export default function Card({
       </div>
       <div className="card-content">
         <h3>{name}</h3>
-        <span>{gender}</span>
-        <span>{species}</span>
-        <span>{status}</span>
-        <span>{location}</span>
+        <strong>
+          Gender :
+          {gender}
+        </strong>
+        <strong>
+          Species :
+          {species}
+        </strong>
+        <strong>
+          Status :
+          {status}
+        </strong>
+        <strong>
+          Location :
+          {location}
+        </strong>
       </div>
     </div>
   )
+}
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  species: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 }
