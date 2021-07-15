@@ -1,8 +1,8 @@
 /* eslint-disable quotes */
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import axios from 'axios'
 import BackButton from '../components/Buttons/BackButton'
+import { getSingleCharacter, getSingleCharacterEpisodes } from '../api/service'
 
 export default function DetailPage() {
   const { id } = useParams()
@@ -17,16 +17,12 @@ export default function DetailPage() {
   const [episodes, setEpisodes] = useState([])
 
   useEffect(() => {
-    axios
-      .get(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({ data }) => setCharacter(data))
+    getSingleCharacter(id, setCharacter)
   }, [id])
 
   useEffect(() => {
     if (character.episode) {
-      axios
-        .all([...character.episode.map((episode) => axios.get(episode))])
-        .then((result) => setEpisodes(result.map((episode) => episode.data)))
+      getSingleCharacterEpisodes(character, setEpisodes)
     }
   }, [character])
 

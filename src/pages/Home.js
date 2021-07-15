@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import NotResult from '../components/NotResult'
 import Card from '../components/Card'
 import PaginationButton from '../components/Buttons/PaginationButton'
+import { getCharacters } from '../api/service'
 
 export default function Home() {
   const [characters, setCharacters] = useState([])
@@ -15,11 +15,7 @@ export default function Home() {
       filter.status ? `&status=${filter.status}` : ''
     }${filter.gender ? `&gender=${filter.gender}` : ''}`
 
-    axios
-      .get(`https://rickandmortyapi.com/api/character${query}`)
-      .then(({ data }) => {
-        setCharacters([...characters, ...data.results])
-      })
+    getCharacters(characters, setCharacters, query)
   }, [filter])
 
   function handleChange(e) {
