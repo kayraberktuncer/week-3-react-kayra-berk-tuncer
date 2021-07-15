@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
-import BackButton from '../components/BackButton'
+import BackButton from '../components/Buttons/BackButton'
 
 export default function DetailPage() {
   const { id } = useParams()
