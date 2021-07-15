@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import NotResult from '../components/NotResult'
 import Card from '../components/Card'
-import PaginationButton from '../components/Buttons/PaginationButton'
+import Search from '../components/Search'
 import { getCharacters } from '../api/service'
 
 export default function Home() {
@@ -27,22 +27,7 @@ export default function Home() {
   return (
     <>
       <h1>Home</h1>
-      <div>
-        <select name="status" onChange={handleChange}>
-          <option value="">Sort by status</option>
-          <option value="dead">Dead</option>
-          <option value="alive">Alive</option>
-          <option value="unknown">Unknown</option>
-        </select>
-        <select name="gender" onChange={handleChange}>
-          <option value="">Sort by gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
-        </select>
-        <PaginationButton setPage={setPage} />
-      </div>
+      <Search handleChange={handleChange} setPage={setPage} />
       <div className="content">
         {characters.length > 0 ? (
           characters.map((character) => (
