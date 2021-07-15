@@ -3,15 +3,17 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import NotResult from '../components/NotResult'
 import Card from '../components/Card'
+import PaginationButton from '../components/Buttons/PaginationButton'
 
 export default function Home() {
   const [characters, setCharacters] = useState([])
   const [filter, setFilter] = useState({ status: '', gender: '' })
+  const [page, setPage] = useState('1')
 
   useEffect(() => {
-    const query = `?${filter.status ? `status=${filter.status}` : ''}${
-      filter.gender ? `&gender=${filter.gender}` : ''
-    }`
+    const query = `?page=${page}${
+      filter.status ? `&status=${filter.status}` : ''
+    }${filter.gender ? `&gender=${filter.gender}` : ''}`
 
     axios
       .get(`https://rickandmortyapi.com/api/character${query}`)
@@ -20,7 +22,7 @@ export default function Home() {
       })
   }, [filter])
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setFilter({ ...filter, [e.target.name]: e.target.value })
     setCharacters([])
     e.preventDefault()
@@ -43,9 +45,10 @@ export default function Home() {
           <option value="genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
+        <PaginationButton setPage={setPage} />
       </div>
       <div className="content">
-        {characters ? (
+        {characters.length > 0 ? (
           characters.map((character) => (
             <Link key={character.id} to={`/${character.id}`}>
               <Card
