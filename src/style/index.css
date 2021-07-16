@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 :root {
-  --primary-color: rgb(216, 160, 169);
+  --background-color: rgb(32, 35, 41);
+  --primary-color: rgb(255, 71, 101);
+  --second-color: rgb(240, 240, 240);
   --select-border: #777;
   --select-focus: blue;
   --select-arrow: var(--select-border);
@@ -17,7 +19,11 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-color: rgb(54, 54, 54);
+  background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -48,17 +54,17 @@ body {
   gap: 1rem;
 }
 .select-items select {
-  width: 100%;
   min-width: 15ch;
   max-width: 30ch;
   border: 1px solid var(--select-border);
-  border-radius: 0.25em;
-  padding: 0.25em 0.5em;
+  border-radius: 0.5rem;
+  padding: 0.25rem 1rem;
   font-size: 1.25rem;
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  outline: none;
 }
 
 .pagination-buttons {
@@ -67,24 +73,27 @@ body {
   gap: 0.5rem;
 }
 .pagination-buttons button {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .card {
-  width: 20rem;
+  display: flex;
+  flex-direction: row;
+  width: 30rem;
   border-radius: 1.5rem;
   position: relative;
-  border: 1px solid rgb(122, 122, 122);
+  border: 1px solid transparent;
   overflow: hidden;
   transition: all 0.3s;
+  background-color: transparent;
 }
 
 .card:hover {
@@ -94,8 +103,6 @@ body {
 
 .card img {
   width: 100%;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
   vertical-align: top;
   transition: all 0.3s;
 }
@@ -110,4 +117,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  background-color: var(--second-color);
+}
+
+.card-content h3 {
+  color: var(--primary-color);
 }

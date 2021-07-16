@@ -15,23 +15,26 @@ export default function Card({
         <img src={image} alt={name} />
       </div>
       <div className="card-content">
-        <h3>{name}</h3>
-        <strong>
-          Gender :
-          {gender}
-        </strong>
-        <strong>
-          Species :
-          {species}
-        </strong>
-        <strong>
-          Status :
-          {status}
-        </strong>
-        <strong>
-          Location :
-          {location}
-        </strong>
+        <div className="card-basic-info">
+          <h3>{name}</h3>
+          <span>
+            {status}
+            {' '}
+            -
+            {' '}
+            {gender}
+          </span>
+        </div>
+        <div className="card-info">
+          <span>Last known location:</span>
+          <br />
+          <span>{location}</span>
+        </div>
+        <div className="card-info">
+          <span>What species:</span>
+          <br />
+          <span>{species}</span>
+        </div>
       </div>
     </div>
   )
