@@ -3,7 +3,8 @@
 :root {
   --background-color: rgb(32, 35, 41);
   --primary-color: rgb(255, 71, 101);
-  --second-color: rgb(240, 240, 240);
+  --first-color: rgb(240, 240, 240);
+  --dark-color: rgb(53, 53, 54);
   --select-border: #777;
   --select-focus: blue;
   --select-arrow: var(--select-border);
@@ -24,6 +25,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--dark-color);
 }
 
 .container {
@@ -62,8 +64,8 @@ a {
   font-size: 1.25rem;
   cursor: pointer;
   line-height: 1.1;
-  background-color: #fff;
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  background-color: (var(--first-color));
+  background-image: linear-gradient(to top, #f9f9f9, var(--first-color) 33%);
   outline: none;
 }
 
@@ -117,9 +119,74 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: var(--second-color);
+  background-color: var(--first-color);
 }
 
 .card-content h3 {
+  color: var(--primary-color);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--first-color);
+  background-color: var(--primary-color);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.detail-page-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.detail-page-item-image img {
+  width: 20rem;
+  border-radius: 20rem;
+}
+
+.detail-page-item {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: var(--dark-color);
+  width: 100%;
+  border-radius: 2rem;
+  gap: 2rem;
+}
+
+.detail-page-item-info {
+  display: flex;
+  flex-direction: column;
+  color: var(--first-color);
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.detail-page-item-info h1 {
+  color: var(--primary-color);
+}
+
+.detail-page-item-episodes {
+  display: flex;
+  flex-direction: column;
+  color: var(--first-color);
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.detail-page-item-episodes h3 {
   color: var(--primary-color);
 }

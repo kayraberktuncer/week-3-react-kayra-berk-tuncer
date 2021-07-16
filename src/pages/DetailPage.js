@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import BackButton from '../components/Buttons/BackButton'
+import NotResult from '../components/NotResult'
 import { getSingleCharacter, getSingleCharacterEpisodes } from '../api/service'
 
 export default function DetailPage() {
@@ -27,20 +28,37 @@ export default function DetailPage() {
   }, [character])
 
   return (
-    <>
+    <div className="detail-page">
       <BackButton />
-      <div>
-        <img src={character.image} alt={character.name} />
-        <h1>{character.name}</h1>
-        <p>{character.gender}</p>
-        <p>{character.species}</p>
-        <p>{character.status}</p>
-        <p>{character.location.name}</p>
-        <h3>Episodes</h3>
-        {episodes.slice(0, 5).map((episode) => (
-          <p>{episode.name}</p>
-        ))}
-      </div>
-    </>
+      {character ? (
+        <div className="detail-page-content">
+          <div className="detail-page-item-image">
+            <img src={character.image} alt={character.name} />
+          </div>
+          <div className="detail-page-item">
+            <div className="detail-page-item-info">
+              <h1>{character.name}</h1>
+              <p>
+                {character.status}
+                {' '}
+                -
+                {' '}
+                {character.species}
+              </p>
+              <p>{character.gender}</p>
+              <p>{character.location.name}</p>
+            </div>
+            <div className="detail-page-item-episodes">
+              <h3>Episodes</h3>
+              {episodes.slice(0, 5).map((episode) => (
+                <p>{episode.name}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <NotResult />
+      )}
+    </div>
   )
 }
