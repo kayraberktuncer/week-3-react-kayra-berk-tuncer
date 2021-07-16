@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+  --primary-color: rgb(216, 160, 169);
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: rgb(54, 54, 54);
+}
+
+.container {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.home-title {
+  display: flex;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.select-items {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.select-items select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.pagination-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.pagination-buttons button {
+    padding: 0.5rem;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  width: 20rem;
+  border-radius: 1.5rem;
+  position: relative;
+  border: 1px solid rgb(122, 122, 122);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  border: 1px solid black;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  vertical-align: top;
+  transition: all 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

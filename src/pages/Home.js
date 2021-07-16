@@ -8,7 +8,7 @@ import { getCharacters } from '../api/service'
 export default function Home() {
   const [characters, setCharacters] = useState([])
   const [filter, setFilter] = useState({ status: '', gender: '' })
-  const [page, setPage] = useState('1')
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     const query = `?page=${page}${
@@ -16,7 +16,7 @@ export default function Home() {
     }${filter.gender ? `&gender=${filter.gender}` : ''}`
 
     getCharacters(characters, setCharacters, query)
-  }, [filter])
+  }, [filter, page])
 
   function handleChange(e) {
     setFilter({ ...filter, [e.target.name]: e.target.value })
@@ -26,8 +26,8 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home</h1>
-      <Search handleChange={handleChange} setPage={setPage} />
+      <h1 className="home-title">The Rick and Morty API</h1>
+      <Search handleChange={handleChange} page={page} setPage={setPage} />
       <div className="content">
         {characters.length > 0 ? (
           characters.map((character) => (

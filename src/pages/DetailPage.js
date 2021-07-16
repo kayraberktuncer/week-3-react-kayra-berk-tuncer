@@ -27,18 +27,20 @@ export default function DetailPage() {
   }, [character])
 
   return (
-    <div>
+    <>
       <BackButton />
-      <img src={character.image} alt={character.name} />
-      <h1>{character.name}</h1>
-      <p>{character.gender}</p>
-      <p>{character.species}</p>
-      <p>{character.status}</p>
-      <p>{character.location.name}</p>
-      <h3>Episodes</h3>
-      {episodes.slice(0, 5).map((episode) => (
-        <p>{episode.name}</p>
-      ))}
-    </div>
+      <div>
+        <img src={character.image} alt={character.name} />
+        <h1>{character.name}</h1>
+        <p>{character.gender}</p>
+        <p>{character.species}</p>
+        <p>{character.status}</p>
+        <p>{character.location.name}</p>
+        <h3>Episodes</h3>
+        {episodes.slice(0, 5).map((episode) => (
+          <p>{episode.name}</p>
+        ))}
+      </div>
+    </>
   )
 }
