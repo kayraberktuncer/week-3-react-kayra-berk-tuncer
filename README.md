@@ -65,8 +65,6 @@ Contributions are what make the open source community such an amazing place to b
 
 Your Name - [@kayraberktuncer](https://twitter.com/kayraberktuncer) - [kayrabtuncer@gmail.com](mailto://kayrabtuncer@gmail.com)
 
-Project Link: [https://github.com/kayraberktuncer/mern-auth](https://github.com/kayraberktuncer/mern-auth)
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [The Rick and Morty API](https://rickandmortyapi.com/)
