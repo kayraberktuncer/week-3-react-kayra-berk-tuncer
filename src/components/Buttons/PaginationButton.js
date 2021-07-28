@@ -6,17 +6,10 @@ export default function PaginationButton({ page, setPage }) {
     setPage(page + 1)
   }
 
-  function handleLowerClick() {
-    setPage(page - 1)
-  }
-
   return (
     <div className="pagination-buttons">
-      <button type="button" value="1" onClick={handleLowerClick}>
-        {'<'}
-      </button>
       <button type="button" value="2" onClick={handleUpperClick}>
-        {'>'}
+        More
       </button>
     </div>
   )

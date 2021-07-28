@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PaginationButton from './Buttons/PaginationButton'
 
-export default function Search({ handleChange, page, setPage }) {
+export default function Search({ handleChange }) {
   return (
     <div className="search-bar">
       <div className="select-items">
@@ -20,12 +19,9 @@ export default function Search({ handleChange, page, setPage }) {
           <option value="unknown">Unknown</option>
         </select>
       </div>
-      <PaginationButton page={page} setPage={setPage} />
     </div>
   )
 }
 Search.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  setPage: PropTypes.func.isRequired,
 }

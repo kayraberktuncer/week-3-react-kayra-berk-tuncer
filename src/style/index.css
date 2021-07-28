@@ -71,8 +71,8 @@ a {
 
 .pagination-buttons {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 .pagination-buttons button {
   padding: 0.5rem;

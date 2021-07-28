@@ -4,6 +4,7 @@ import NotResult from '../components/NotResult'
 import Card from '../components/Card'
 import Search from '../components/Search'
 import { getCharacters } from '../api/service'
+import PaginationButton from '../components/Buttons/PaginationButton'
 
 export default function Home() {
   const [characters, setCharacters] = useState([])
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <>
       <h1 className="home-title">The Rick and Morty API</h1>
-      <Search handleChange={handleChange} page={page} setPage={setPage} />
+      <Search handleChange={handleChange} />
       <div className="content">
         {characters.length > 0 ? (
           characters.map((character) => (
@@ -48,6 +49,7 @@ export default function Home() {
           <NotResult />
         )}
       </div>
+      <PaginationButton page={page} setPage={setPage} />
     </>
   )
 }
