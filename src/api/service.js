@@ -1,24 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios'
 
-export function getData() {
+export function getCharacters(query) {
   return axios
-    .get('https://rickandmortyapi.com/api/character/1')
-    .then((result) => result.data.id)
-}
-
-export function getCharacters(characters, setCharacters, query) {
-  axios
     .get(`https://rickandmortyapi.com/api/character${query}`)
-    .then(({ data }) => {
-      setCharacters([...characters, ...data.results])
-    })
+    .then(({ data }) => data)
 }
 
-export function getSingleCharacter(id, setCharacter) {
-  axios
+export function getSingleCharacter(id) {
+  return axios
     .get(`https://rickandmortyapi.com/api/character/${id}`)
-    .then(({ data }) => setCharacter(data))
+    .then(({ data }) => data)
 }
 
 export function getSingleCharacterEpisodes(character) {

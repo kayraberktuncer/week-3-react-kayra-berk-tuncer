@@ -17,8 +17,9 @@ export default function DetailPage() {
   })
   const [episodes, setEpisodes] = useState([])
 
-  useEffect(() => {
-    getSingleCharacter(id, setCharacter)
+  useEffect(async () => {
+    const result = await getSingleCharacter(id)
+    setCharacter(result)
   }, [id])
 
   useEffect(async () => {
