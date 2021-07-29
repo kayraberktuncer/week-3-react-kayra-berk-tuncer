@@ -11,12 +11,13 @@ export default function Home() {
   const [filter, setFilter] = useState({ status: '', gender: '' })
   const [page, setPage] = useState(1)
 
-  useEffect(() => {
+  useEffect(async () => {
     const query = `?page=${page}${
       filter.status ? `&status=${filter.status}` : ''
     }${filter.gender ? `&gender=${filter.gender}` : ''}`
 
-    getCharacters(characters, setCharacters, query)
+    const data = await getCharacters(query)
+    setCharacters([...characters, ...data.results])
   }, [filter, page])
 
   function handleChange(e) {
