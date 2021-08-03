@@ -4,18 +4,20 @@ import NotResult from '../components/NotResult'
 import Card from '../components/Card'
 import Search from '../components/Search'
 import { getCharacters } from '../api/service'
+import PaginationButton from '../components/Buttons/PaginationButton'
 
 export default function Home() {
   const [characters, setCharacters] = useState([])
   const [filter, setFilter] = useState({ status: '', gender: '' })
   const [page, setPage] = useState(1)
 
-  useEffect(() => {
+  useEffect(async () => {
     const query = `?page=${page}${
       filter.status ? `&status=${filter.status}` : ''
     }${filter.gender ? `&gender=${filter.gender}` : ''}`
 
-    getCharacters(characters, setCharacters, query)
+    const data = await getCharacters(query)
+    setCharacters([...characters, ...data.results])
   }, [filter, page])
 
   function handleChange(e) {
@@ -27,7 +29,7 @@ export default function Home() {
   return (
     <>
       <h1 className="home-title">The Rick and Morty API</h1>
-      <Search handleChange={handleChange} page={page} setPage={setPage} />
+      <Search handleChange={handleChange} />
       <div className="content">
         {characters.length > 0 ? (
           characters.map((character) => (
@@ -48,6 +50,7 @@ export default function Home() {
           <NotResult />
         )}
       </div>
+      <PaginationButton page={page} setPage={setPage} />
     </>
   )
 }

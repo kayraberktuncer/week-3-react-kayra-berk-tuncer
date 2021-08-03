@@ -17,13 +17,15 @@ export default function DetailPage() {
   })
   const [episodes, setEpisodes] = useState([])
 
-  useEffect(() => {
-    getSingleCharacter(id, setCharacter)
+  useEffect(async () => {
+    const result = await getSingleCharacter(id)
+    setCharacter(result)
   }, [id])
 
-  useEffect(() => {
+  useEffect(async () => {
     if (character.episode) {
-      getSingleCharacterEpisodes(character, setEpisodes)
+      const result = await getSingleCharacterEpisodes(character)
+      setEpisodes(result.map((episode) => episode.data))
     }
   }, [character])
 
